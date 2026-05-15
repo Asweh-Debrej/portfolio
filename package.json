@@ -2,6 +2,16 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Muhamad Farhan Syakir",
+    "email": "aswehdebrej@gmail.com",
+    "url": "https://asweh.com"
+  },
+  "homepage": "https://asweh.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Asweh-Debrej/portfolio"
+  },
   "scripts": {
     "gen:projects": "node scripts/build-projects-index.mjs",
     "predev": "npm run gen:projects",
