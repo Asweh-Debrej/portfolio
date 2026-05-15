@@ -1,5 +1,5 @@
 /**
- * `useDrag` — pointer-event based drag with optional snap-to-edge detection.
+ * `useDrag` - pointer-event based drag with optional snap-to-edge detection.
  *
  * The hook is decoupled from any store: it only emits raw delta events.
  * Callers translate deltas into transforms (cheap, no React re-render) or
@@ -76,7 +76,7 @@ export function useDrag(
   ref: React.RefObject<HTMLElement | null>,
   handlers: DragHandlers,
 ) {
-  // Stable handlers reference via ref — lets callers pass inline arrow fns
+  // Stable handlers reference via ref - lets callers pass inline arrow fns
   // without retriggering the effect.
   const handlersRef = useRef(handlers);
   handlersRef.current = handlers;

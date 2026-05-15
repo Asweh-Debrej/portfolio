@@ -33,7 +33,7 @@ interface DesktopIconProps {
 }
 
 /**
- * `<DesktopIcon>` — clickable + draggable shortcut on the desktop grid.
+ * `<DesktopIcon>` - clickable + draggable shortcut on the desktop grid.
  *
  * Interaction model
  * -----------------
@@ -86,7 +86,7 @@ export function DesktopIcon({
         el.style.transform = "";
         el.style.zIndex = "";
       }
-      // Clear dragging flag a tick later — gives the trailing click event
+      // Clear dragging flag a tick later - gives the trailing click event
       // a chance to be suppressed.
       setTimeout(() => {
         draggingRef.current = false;

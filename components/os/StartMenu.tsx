@@ -16,7 +16,7 @@ interface StartMenuProps {
 }
 
 /**
- * `<StartMenu>` — popover above the Start button. Searchable app launcher.
+ * `<StartMenu>` - popover above the Start button. Searchable app launcher.
  *
  * - Closes on outside click, `Esc`, or after launching an app.
  * - `↑` / `↓` navigate the result list, `Enter` launches the highlighted app.

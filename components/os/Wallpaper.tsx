@@ -12,7 +12,7 @@ const CLASS_BY_ID: Record<string, string> = {
 };
 
 /**
- * `<Wallpaper>` — animated CSS-gradient background with optional pointer
+ * `<Wallpaper>` - animated CSS-gradient background with optional pointer
  * parallax. Heavy filters are scoped to a `<div>` (not body) so React rules
  * don't conflict with the gradient.
  */
@@ -23,7 +23,7 @@ export function Wallpaper() {
   const isMobile = useIsMobile();
   const ref = useRef<HTMLDivElement | null>(null);
 
-  // Pointer parallax — RAF-throttled, no React re-renders.
+  // Pointer parallax - RAF-throttled, no React re-renders.
   useEffect(() => {
     if (!parallaxEnabled || reducedMotion || isMobile) return;
     const el = ref.current;
@@ -56,7 +56,7 @@ export function Wallpaper() {
 
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      {/* Parallax layer — transforms with pointer movement.
+      {/* Parallax layer - transforms with pointer movement.
           Kept separate from the drift-animation div so the two
           `transform` declarations never conflict. */}
       <div

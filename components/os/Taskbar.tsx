@@ -17,7 +17,7 @@ interface TaskbarProps {
 }
 
 /**
- * `<Taskbar>` — bottom strip with Start button, window buttons (one per open
+ * `<Taskbar>` - bottom strip with Start button, window buttons (one per open
  * window), clock, and tray (theme + sound quick toggles).
  *
  * Window buttons use Framer Motion's `layout` prop + `<AnimatePresence>`
@@ -96,7 +96,7 @@ function WindowButtons() {
               focus(id);
             }
           };
-          // Middle-click closes the window — matches taskbar idiom on most
+          // Middle-click closes the window - matches taskbar idiom on most
           // desktop OSes. `onAuxClick` fires for any non-primary button; we
           // gate on `button === 1` (middle).
           const onAuxClick = (e: React.MouseEvent) => {

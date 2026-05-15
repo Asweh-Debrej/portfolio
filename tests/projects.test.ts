@@ -46,7 +46,7 @@ describe("project index", () => {
     for (const p of projects) {
       if (!p.meta.featured) seenUnfeatured = true;
       else if (seenUnfeatured) {
-        throw new Error("Featured project found after unfeatured — sort broken");
+        throw new Error("Featured project found after unfeatured - sort broken");
       }
     }
   });

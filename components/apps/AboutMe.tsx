@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import type { AppProps } from "@/lib/registry";
 
 /**
- * About Me — pulls `content/about.mdx` rendered to HTML at build time and
+ * About Me - pulls `content/about.mdx` rendered to HTML at build time and
  * delivered via dynamic import of the `meta`-bearing MDX module.
  *
  * We dynamically `import()` instead of statically importing so the MDX chunk

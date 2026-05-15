@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 
 /**
- * `useMediaQuery` — subscribes to a `window.matchMedia` query.
+ * `useMediaQuery` - subscribes to a `window.matchMedia` query.
  *
  * Returns `false` on first render (SSR-safe). Updates after mount, so
- * **don't use this for layout-affecting decisions on first paint** — prefer
+ * **don't use this for layout-affecting decisions on first paint** - prefer
  * CSS `@media` for those. Use this hook for behavioural branching only
  * (e.g., "disable drag on touch devices").
  */

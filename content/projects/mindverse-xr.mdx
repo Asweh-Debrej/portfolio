@@ -4,7 +4,7 @@ slug: "mindverse-xr"
 year: 2026
 role: "Refactorer & Contributor Developer"
 stack: ["Unity", "C#", "MRTK 2", "HoloLens 2", "More Mountains Feel", "Pixel Crusher"]
-summary: "Mixed-reality mind mapping for HoloLens 2 — hand-tracking-driven 3D thought organization in MR space."
+summary: "Mixed-reality mind mapping for HoloLens 2, hand-tracking-driven 3D thought organization in MR space."
 tags: ["xr", "mixed-reality", "hololens", "unity"]
 featured: false
 ---
@@ -22,13 +22,13 @@ on HoloLens 2 so users can grab, arrange, and group nodes with their hands.
 I joined the project in **April 2026** as a refactorer and contributor at the
 Metaverse ITB lab. Work focused on three areas:
 
-- **Interaction module consolidation** — unified scattered grabable-object
+- **Interaction module consolidation**, unified scattered grabable-object
   scripts behind a single, predictable interface so adding new node types no
   longer requires touching five files.
-- **Command-pattern undo/redo** — every state-changing interaction emits a
+- **Command-pattern undo/redo**, every state-changing interaction emits a
   Command object so users can reverse moves naturally. Critical for MR, where
   accidental hand input is common.
-- **Object pooling for grabables** — eliminates per-frame GC spikes that cause
+- **Object pooling for grabables**, eliminates per-frame GC spikes that cause
   HoloLens motion sickness during heavy sessions.
 
 I also demoed the application to researchers and visitors at 5+ lab events.
@@ -46,7 +46,7 @@ I also demoed the application to researchers and visitors at 5+ lab events.
 
 ## Tech highlights
 
-- **Command pattern** for irreversible-feeling MR interactions — users can
+- **Command pattern** for irreversible-feeling MR interactions, users can
   always step back.
 - **Object pooling** to keep GC out of the per-frame hot path.
 - **Synchronized multi-feedback** via More Mountains Feel + Pixel Crusher so

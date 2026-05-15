@@ -1,5 +1,5 @@
 /**
- * `useResize` — pointer-event based resize hook supporting 8 handles.
+ * `useResize` - pointer-event based resize hook supporting 8 handles.
  *
  * The hook computes new geometry given the handle direction and a delta from
  * pointer-down. The caller is responsible for clamping (the window store does

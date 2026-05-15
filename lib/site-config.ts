@@ -12,11 +12,11 @@ export const SITE_URL =
 export const SITE_NAME = "Aan Portfolio";
 
 /**
- * ~156 chars — within the 160-char SERP display limit.
+ * ~156 chars, within the 160-char SERP display limit.
  * Includes name, location, and key domains for keyword relevance.
  */
 export const SITE_DESCRIPTION =
-  "Portfolio of Muhamad Farhan Syakir — software engineer from Bandung, Indonesia. Full-stack web apps, robotics, and XR projects in an interactive desktop UI.";
+  "Portfolio of Muhamad Farhan Syakir, software engineer from Bandung, Indonesia. Full-stack web apps, robotics, and XR projects in an interactive desktop UI.";
 
 export const AUTHOR_NAME = "Muhamad Farhan Syakir, S.T.";
 export const AUTHOR_SHORT = "Aan";

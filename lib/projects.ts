@@ -1,5 +1,5 @@
 /**
- * Project index facade — wraps `projects.generated.ts` (produced by
+ * Project index facade - wraps `projects.generated.ts` (produced by
  * `scripts/build-projects-index.mjs`) and provides typed defaults so
  * frontmatter fields like `tags`/`stack`/`links` always exist.
  *

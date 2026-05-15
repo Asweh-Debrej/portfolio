@@ -5,9 +5,10 @@ import { ChevronRight } from "lucide-react";
 import { listApps, getAppMeta, type AppMeta } from "@/lib/registry";
 import { WindowSkeleton } from "./WindowSkeleton";
 import { cn } from "@/lib/utils";
+import { AUTHOR_SHORT } from "@/lib/site-config";
 
 /**
- * `<MobileLayout>` — fallback shell for narrow viewports (< 768px).
+ * `<MobileLayout>`, fallback shell for narrow viewports (< 768px).
  *
  * The desktop metaphor doesn't translate well to phones: window dragging is
  * fiddly with one thumb, and screens are too small for overlapping content.
@@ -91,7 +92,7 @@ export function MobileLayout({ initialAppId }: { initialAppId?: string }) {
       </main>
 
       <footer className="border-t border-[var(--color-border)] px-4 py-3 text-center text-[11px] text-[var(--color-fg-muted)]">
-        Built with Next.js · static-exported
+        © {new Date().getFullYear()} {AUTHOR_SHORT}. All rights reserved.
       </footer>
     </div>
   );

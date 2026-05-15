@@ -2,11 +2,11 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site-config";
 import { listProjectSlugs } from "@/lib/projects";
 
-// Required for `output: "export"` — sitemap is fully static.
+// Required for `output: "export"` - sitemap is fully static.
 export const dynamic = "force-static";
 
 /**
- * `sitemap.xml` generator — emits the root URL and every per-project route.
+ * `sitemap.xml` generator - emits the root URL and every per-project route.
  * Since the site is fully static, all entries get `changefreq=monthly`.
  */
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -29,7 +29,7 @@ interface DesktopRootProps {
 }
 
 /**
- * `<DesktopRoot>` — the entire OS shell. Composes wallpaper + desktop icons +
+ * `<DesktopRoot>` - the entire OS shell. Composes wallpaper + desktop icons +
  * taskbar + start menu + window manager + boot screen + global shortcuts.
  *
  * Mobile fallback
@@ -138,7 +138,7 @@ export function DesktopRoot({ autoOpen }: DesktopRootProps) {
     // Second pass: place the rest.
     for (const app of shortcuts) {
       if (positions.has(app.id)) continue;
-      // Try the stored slot first even if "taken" — collision case — but
+      // Try the stored slot first even if "taken" - collision case - but
       // we already skipped it, so find next free cell.
       let col = 0;
       let row = 0;
@@ -217,7 +217,7 @@ export function DesktopRoot({ autoOpen }: DesktopRootProps) {
     <>
       <BootScreen />
 
-      {/* Desktop shell — visible on md+ */}
+      {/* Desktop shell - visible on md+ */}
       <div
         ref={desktopRef}
         className={cn(

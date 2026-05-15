@@ -3,13 +3,13 @@
 import { useEffect } from "react";
 
 /**
- * `useFocusTrap` — when `active`, keeps Tab/Shift+Tab focus inside `containerRef`.
+ * `useFocusTrap` - when `active`, keeps Tab/Shift+Tab focus inside `containerRef`.
  *
  * - On activation: focus the first focusable element (or the container itself
  *   if `initialFocus` is `'container'`).
  * - On deactivation: restore focus to the element that was focused before
  *   activation (if any).
- * - Does NOT prevent click-out — windows are not modal. Tab order only.
+ * - Does NOT prevent click-out - windows are not modal. Tab order only.
  */
 export function useFocusTrap(
   containerRef: React.RefObject<HTMLElement | null>,

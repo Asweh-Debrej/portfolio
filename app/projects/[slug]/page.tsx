@@ -13,7 +13,7 @@ interface PageProps {
 }
 
 /**
- * Per-project URL — `/projects/<slug>/`. Auto-opens the project-viewer
+ * Per-project URL - `/projects/<slug>/`. Auto-opens the project-viewer
  * window pre-pointed at this slug.
  *
  * Static export: `generateStaticParams` returns every slug discovered by the
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const keywords = [...meta.tags, ...meta.stack];
 
   return {
-    title: meta.title, // root template appends "— Aan"
+    title: meta.title, // root template appends "- Aan"
     description: meta.summary,
     keywords,
     authors: [{ name: AUTHOR_NAME, url: SITE_URL }],
@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
               url: "/og-default.png",
               width: 1200,
               height: 630,
-              alt: `${meta.title} — Aan`,
+              alt: `${meta.title} - Aan`,
             },
           ],
     },

@@ -12,7 +12,7 @@
  *
  * - Z-index is a monotonically increasing counter. On focus, we hand the window
  *   the next number. We never re-compact (cheap; integers are unbounded for our
- *   purposes — millions of focus events fit in a Number).
+ *   purposes - millions of focus events fit in a Number).
  *
  * - `order` records open order; we use it for Alt+Tab-style cycling and to find
  *   "next window to focus" when one closes.
@@ -82,7 +82,7 @@ export interface WindowStore {
   toggleMax: (id: string) => void;
   /**
    * Restore a maximized window mid-drag so the cursor stays anchored to the
-   * header. Used when the user grabs a maximized window's header — Windows
+   * header. Used when the user grabs a maximized window's header - Windows
    * 7+ idiom. `cursorX/Y` are viewport coordinates of the pointer.
    *
    * Returns the new `{x, y}` so the caller (drag hook) can re-anchor its

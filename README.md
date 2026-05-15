@@ -6,7 +6,7 @@
 [![Website](https://img.shields.io/badge/Website-asweh.com-000000?logo=vercel&logoColor=white)](https://asweh.com)
 
 A static, desktop-OS style portfolio built with Next.js 15 (App Router + static
-export). Inspired by [daedalOS](https://github.com/DustinBrett/daedalOS) — much
+export). Inspired by [daedalOS](https://github.com/DustinBrett/daedalOS) - much
 smaller scope, content-first.
 
 ## Quick start

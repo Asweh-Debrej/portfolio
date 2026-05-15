@@ -140,7 +140,7 @@ describe("windowStore", () => {
     toggleMax("about-me");
     expect(useWindowStore.getState().windows["about-me"].maximized).toBe(true);
 
-    // Cursor near the right edge — the restored window should land mostly to
+    // Cursor near the right edge - the restored window should land mostly to
     // the left of the cursor, preserving the proportional X position.
     const anchor = restoreFromMaxAt("about-me", 1200, 8);
     expect(anchor).not.toBeNull();

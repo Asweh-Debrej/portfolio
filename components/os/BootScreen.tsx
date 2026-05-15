@@ -6,7 +6,7 @@ import { useSettingsStore } from "@/lib/store/settingsStore";
 import { useReducedMotion } from "@/lib/hooks/useMediaQuery";
 
 /**
- * `<BootScreen>` — first-visit only. Shows a brief "booting…" splash, then
+ * `<BootScreen>` - first-visit only. Shows a brief "booting…" splash, then
  * sets `hasSeenBoot=true` so subsequent loads go straight to the desktop.
  *
  * - Reduced-motion users get a static screen for ~600ms (instead of animation).
@@ -59,7 +59,7 @@ export function BootScreen() {
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center gap-6 bg-black text-white"
         >
           {/* Render animation content only after hydration (first visit).
-              Pre-hydration: plain black cover — no animated elements yet. */}
+              Pre-hydration: plain black cover - no animated elements yet. */}
           {hydrated && !hasSeenBoot && (
             <>
               <motion.div

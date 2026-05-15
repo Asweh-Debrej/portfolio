@@ -1,5 +1,5 @@
 /**
- * App registry — declarative source of truth for every "app" available in
+ * App registry - declarative source of truth for every "app" available in
  * the OS shell. Each entry maps an `id` → metadata + lazy-loaded component.
  *
  * Why lazy?

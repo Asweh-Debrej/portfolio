@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { useSettingsStore } from "@/lib/store/settingsStore";
 
 /**
- * `useSound` — synth-based click/open/close blips. No audio files downloaded.
+ * `useSound` - synth-based click/open/close blips. No audio files downloaded.
  *
  * AudioContext is created lazily on first call (browser autoplay policy
  * requires a user gesture). If the user hasn't enabled sound in Settings,

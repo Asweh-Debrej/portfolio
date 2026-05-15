@@ -46,7 +46,7 @@ const SNAP_TRANSITION =
   "left 180ms cubic-bezier(.2,.85,.4,1), top 180ms cubic-bezier(.2,.85,.4,1), width 180ms cubic-bezier(.2,.85,.4,1), height 180ms cubic-bezier(.2,.85,.4,1)";
 
 /**
- * `<Window>` — single OS window.
+ * `<Window>` - single OS window.
  *
  * Performance contract
  * --------------------
@@ -61,7 +61,7 @@ const SNAP_TRANSITION =
  * -----------------
  * The parent container (`#main-content` in `<DesktopRoot>`) already reserves
  * the taskbar via `bottom: var(--taskbar-h)`. Therefore a maximized window
- * uses `inset: 0` / `height: 100%` — **do not** subtract the taskbar again or
+ * uses `inset: 0` / `height: 100%` - **do not** subtract the taskbar again or
  * you'll get a ~48px gap.
  *
  * Snap animation
@@ -77,7 +77,7 @@ function WindowImpl({ id, title, icon, children }: WindowProps) {
   const sound = useSound();
   const reducedMotion = useReducedMotion();
 
-  // Subscribe only to this window's slice — sibling moves don't re-render us.
+  // Subscribe only to this window's slice - sibling moves don't re-render us.
   const state = useWindowStore((s) => s.windows[id]);
   const focusedId = useWindowStore((s) => s.focusedId);
   const isFocused = focusedId === id;
@@ -186,7 +186,7 @@ function WindowImpl({ id, title, icon, children }: WindowProps) {
 
   const style: CSSProperties = state.maximized
     ? {
-        // Parent (#main-content) already excludes the taskbar — use full extent.
+        // Parent (#main-content) already excludes the taskbar - use full extent.
         left: 0,
         top: 0,
         right: 0,
@@ -229,7 +229,7 @@ function WindowImpl({ id, title, icon, children }: WindowProps) {
       onPointerDown={focusHandler}
       data-window-id={id}
     >
-      {/* Header — solid surface on focus for better text contrast (issue 9). */}
+      {/* Header - solid surface on focus for better text contrast (issue 9). */}
       <div
         ref={headerRef}
         className={cn(
@@ -300,7 +300,7 @@ function WindowImpl({ id, title, icon, children }: WindowProps) {
   );
 }
 
-// Memoized export — only re-renders when its own slice of state changes.
+// Memoized export - only re-renders when its own slice of state changes.
 export const Window = memo(WindowImpl);
 
 // ----- Internal components -------------------------------------------------

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: SITE_NAME,
-    template: "%s — Aan",
+    template: "%s - Aan",
   },
   description: SITE_DESCRIPTION,
   keywords: DEFAULT_KEYWORDS,
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         url: "/og-default.png",
         width: 1200,
         height: 630,
-        alt: `${AUTHOR_NAME} — Portfolio`,
+        alt: `${AUTHOR_NAME} - Portfolio`,
       },
     ],
   },
@@ -96,7 +96,7 @@ const themeBootScript = `
 `;
 
 /**
- * schema.org Person — helps Google associate the site with its author.
+ * schema.org Person - helps Google associate the site with its author.
  * Injected as a static JSON-LD block alongside the theme-boot script so it is
  * present in the initial HTML payload seen by crawlers.
  */

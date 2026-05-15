@@ -4,11 +4,11 @@ LaTeX source for the resume PDF served at `/resume.pdf` in the portfolio.
 
 ## Files
 
-- `resume.tex` — main source, structured to mirror the original template (heading
+- `resume.tex` - main source, structured to mirror the original template (heading
   → experience → education → skills → languages → projects → publications → awards).
-- `secrets.tex` — phone / email / `\displayphone` macros. **Gitignored** — copy
+- `secrets.tex` - phone / email / `\displayphone` macros. **Gitignored** - copy
   `secrets.tex.example` to `secrets.tex` and fill it in on a fresh checkout.
-- `Makefile` — `make pdf` compiles `resume.tex` → `output/resume.pdf` and copies
+- `Makefile` - `make pdf` compiles `resume.tex` → `output/resume.pdf` and copies
   to `../public/resume.pdf`.
 
 ## Build

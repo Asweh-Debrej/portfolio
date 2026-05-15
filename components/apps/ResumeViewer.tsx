@@ -5,7 +5,7 @@ import { Download } from "lucide-react";
 import type { AppProps } from "@/lib/registry";
 
 /**
- * Resume — Markdown-formatted CV rendered via MDX, with a "Download PDF"
+ * Resume - Markdown-formatted CV rendered via MDX, with a "Download PDF"
  * shortcut linking to `/resume.pdf` (place the file in `/public`).
  */
 export default function ResumeViewer(_props: AppProps) {

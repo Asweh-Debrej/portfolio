@@ -29,7 +29,7 @@ function memoryStorage(): Storage {
 }
 
 if (typeof window !== "undefined") {
-  // Replace whether or not jsdom provided one — guarantees `.clear()` works.
+  // Replace whether or not jsdom provided one - guarantees `.clear()` works.
   Object.defineProperty(window, "localStorage", {
     configurable: true,
     value: memoryStorage(),

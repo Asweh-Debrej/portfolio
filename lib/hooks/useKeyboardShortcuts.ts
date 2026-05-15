@@ -16,7 +16,7 @@ import { useWindowStore } from "@/lib/store/windowStore";
  * --------
  * - `Esc`                close focused window (unless typing in an input)
  * - `Alt+F4`             close focused window (best-effort: the host OS may
- *                        intercept this — Chrome on Windows lets it through,
+ *                        intercept this - Chrome on Windows lets it through,
  *                        Firefox does not)
  * - `Ctrl+Shift+W`       close focused window (reliable cross-browser; we
  *                        intentionally don't use `Ctrl+W` because every
@@ -40,7 +40,7 @@ export function useKeyboardShortcuts(opts: {
           target.isContentEditable);
       const store = useWindowStore.getState();
 
-      // Shift+Esc → start menu (works even in editable elements? yes — it's
+      // Shift+Esc → start menu (works even in editable elements? yes - it's
       // an unambiguous combo).
       if (e.key === "Escape" && e.shiftKey) {
         e.preventDefault();

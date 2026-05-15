@@ -22,7 +22,7 @@ interface ContextMenuProps {
 }
 
 /**
- * `<ContextMenu>` — wraps a region; right-click → menu at cursor.
+ * `<ContextMenu>` - wraps a region; right-click → menu at cursor.
  *
  * Position is clamped to viewport so the menu never overflows. Keyboard:
  * Esc closes, ↑/↓ navigate, Enter selects.
