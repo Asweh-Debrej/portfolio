@@ -1,50 +1,65 @@
 import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio.local";
+import {
+  SITE_URL,
+  SITE_NAME,
+  SITE_DESCRIPTION,
+  AUTHOR_NAME,
+  AUTHOR_SHORT,
+  GITHUB_URL,
+  LINKEDIN_URL,
+  EMAIL,
+  DEFAULT_KEYWORDS,
+} from "@/lib/site-config";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Aan — Portfolio",
+    default: SITE_NAME,
     template: "%s — Aan",
   },
-  description:
-    "An interactive desktop-style portfolio. Browse projects through a draggable, resizable window manager built in the browser.",
-  keywords: [
-    "portfolio",
-    "software engineering",
-    "web development",
-    "Next.js",
-    "TypeScript",
-    "desktop OS",
-  ],
-  authors: [{ name: "Aan" }],
-  creator: "Aan",
+  description: SITE_DESCRIPTION,
+  keywords: DEFAULT_KEYWORDS,
+  authors: [{ name: AUTHOR_NAME, url: SITE_URL }],
+  creator: AUTHOR_NAME,
+  applicationName: "Aan Portfolio",
+  category: "portfolio",
+  alternates: {
+    canonical: SITE_URL,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
-    siteName: "Aan — Portfolio",
-    title: "Aan — Portfolio",
-    description: "An interactive desktop-style portfolio.",
+    siteName: SITE_NAME,
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
     images: [
       {
         url: "/og-default.png",
         width: 1200,
         height: 630,
-        alt: "Aan — Portfolio",
+        alt: `${AUTHOR_NAME} — Portfolio`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aan — Portfolio",
-    description: "An interactive desktop-style portfolio.",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
     images: ["/og-default.png"],
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    // Allow rich previews in Google Search (image thumbnails, full snippets).
+    "max-image-preview": "large",
+    "max-snippet": -1,
+  },
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
 };
 
 export const viewport: Viewport = {
@@ -80,11 +95,31 @@ const themeBootScript = `
 })();
 `;
 
+/**
+ * schema.org Person — helps Google associate the site with its author.
+ * Injected as a static JSON-LD block alongside the theme-boot script so it is
+ * present in the initial HTML payload seen by crawlers.
+ */
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: AUTHOR_NAME,
+  alternateName: AUTHOR_SHORT,
+  url: SITE_URL,
+  email: EMAIL,
+  jobTitle: "Software Engineer",
+  sameAs: [GITHUB_URL, LINKEDIN_URL],
+};
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
       </head>
       <body>
         <a

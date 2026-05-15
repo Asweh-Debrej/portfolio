@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/site-config";
 import { listProjectSlugs } from "@/lib/projects";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
 
 // Required for `output: "export"` — sitemap is fully static.
 export const dynamic = "force-static";
