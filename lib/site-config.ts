@@ -9,7 +9,7 @@
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://asweh.com";
 
-export const SITE_NAME = "Aan — Portfolio";
+export const SITE_NAME = "Aan Portfolio";
 
 /**
  * ~156 chars — within the 160-char SERP display limit.

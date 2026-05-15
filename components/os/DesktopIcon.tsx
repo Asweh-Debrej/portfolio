@@ -6,7 +6,7 @@ import { useReducedMotion } from "@/lib/hooks/useMediaQuery";
 import { useSound } from "@/lib/hooks/useSound";
 import { useDrag } from "@/lib/hooks/useDrag";
 import { useWindowStore } from "@/lib/store/windowStore";
-import { useSettingsStore, type DesktopIconPos } from "@/lib/store/settingsStore";
+import { type DesktopIconPos } from "@/lib/store/settingsStore";
 import { type AppMeta } from "@/lib/registry";
 import { cn } from "@/lib/utils";
 
@@ -23,8 +23,11 @@ interface DesktopIconProps {
   app: AppMeta;
   /** Grid position assigned by `<DesktopRoot>` (column, row). */
   pos: DesktopIconPos;
-  /** Resolve a dropped (px) position to a free grid cell. */
-  resolveDrop: (id: string, col: number, row: number) => DesktopIconPos;
+  /**
+   * Called on drop: resolves the target cell, pins all icon positions so
+   * non-stored icons don't shuffle around, and persists to the store.
+   */
+  onDrop: (id: string, col: number, row: number) => void;
   param?: string;
   label?: string;
 }
@@ -47,7 +50,7 @@ interface DesktopIconProps {
 export function DesktopIcon({
   app,
   pos,
-  resolveDrop,
+  onDrop,
   param,
   label,
 }: DesktopIconProps) {
@@ -55,7 +58,6 @@ export function DesktopIcon({
   const open = useWindowStore((s) => s.open);
   const sound = useSound();
   const reducedMotion = useReducedMotion();
-  const setIconPosition = useSettingsStore((s) => s.setIconPosition);
 
   const ref = useRef<HTMLButtonElement | null>(null);
   const draggingRef = useRef(false);
@@ -95,8 +97,7 @@ export function DesktopIcon({
       const dRow = Math.round(dy / ICON_CELL_H);
       const targetCol = Math.max(0, pos.col + dCol);
       const targetRow = Math.max(0, pos.row + dRow);
-      const finalPos = resolveDrop(app.id, targetCol, targetRow);
-      setIconPosition(app.id, finalPos);
+      onDrop(app.id, targetCol, targetRow);
     },
   });
 

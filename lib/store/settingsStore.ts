@@ -47,6 +47,7 @@ export interface SettingsStore {
   setParallaxEnabled: (v: boolean) => void;
   markBootSeen: () => void;
   setIconPosition: (id: string, pos: DesktopIconPos) => void;
+  setIconPositions: (positions: Record<string, DesktopIconPos>) => void;
   resetIconPositions: () => void;
   reset: () => void;
   _markHydrated: () => void;
@@ -85,6 +86,10 @@ export const useSettingsStore = create<SettingsStore>()(
       setIconPosition: (id, pos) =>
         set((s) => ({
           desktopIconPositions: { ...s.desktopIconPositions, [id]: pos },
+        })),
+      setIconPositions: (positions) =>
+        set((s) => ({
+          desktopIconPositions: { ...s.desktopIconPositions, ...positions },
         })),
       resetIconPositions: () => set({ desktopIconPositions: {} }),
       reset: () => {

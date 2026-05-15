@@ -121,7 +121,7 @@ function Toggle({
         aria-checked={value}
         onClick={() => onChange(!value)}
         className={cn(
-          "relative h-5 w-9 rounded-full transition-colors",
+          "relative h-5 w-9 overflow-hidden rounded-full transition-colors",
           value
             ? "bg-[var(--color-accent)]"
             : "bg-[color-mix(in_oklch,var(--color-fg)_20%,transparent)]",
@@ -129,8 +129,8 @@ function Toggle({
       >
         <span
           className={cn(
-            "absolute top-0.5 h-4 w-4 rounded-full bg-white shadow transition-transform",
-            value ? "translate-x-0" : "translate-x-[-16px]",
+            "absolute top-0.5 left-0.5 h-4 w-4 rounded-full bg-white shadow transition-transform",
+            value ? "translate-x-4" : "translate-x-0",
           )}
         />
       </button>

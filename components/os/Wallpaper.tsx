@@ -56,15 +56,21 @@ export function Wallpaper() {
 
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+      {/* Parallax layer — transforms with pointer movement.
+          Kept separate from the drift-animation div so the two
+          `transform` declarations never conflict. */}
       <div
         ref={ref}
-        className={cn(CLASS_BY_ID[wallpaper] ?? CLASS_BY_ID.aurora)}
         style={{
-          transform:
-            "translate3d(var(--parallax-x, 0), var(--parallax-y, 0), 0)",
+          position: "absolute",
+          inset: 0,
+          transform: "translate3d(var(--parallax-x, 0px), var(--parallax-y, 0px), 0)",
           transition: "transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)",
         }}
-      />
+      >
+        {/* Drift-animation layer */}
+        <div className={cn(CLASS_BY_ID[wallpaper] ?? CLASS_BY_ID.aurora)} />
+      </div>
     </div>
   );
 }

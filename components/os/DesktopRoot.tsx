@@ -48,6 +48,7 @@ export function DesktopRoot({ autoOpen }: DesktopRootProps) {
   const setWallpaper = useSettingsStore((s) => s.setWallpaper);
   const desktopIconPositions = useSettingsStore((s) => s.desktopIconPositions);
   const resetIconPositions = useSettingsStore((s) => s.resetIconPositions);
+  const setIconPositions = useSettingsStore((s) => s.setIconPositions);
   const desktopRef = useRef<HTMLDivElement | null>(null);
 
   // Global keyboard shortcuts.
@@ -163,33 +164,42 @@ export function DesktopRoot({ autoOpen }: DesktopRootProps) {
   }, [shortcuts, desktopIconPositions]);
 
   /**
-   * Resolve a drop target on the grid. If `(col,row)` is already taken by a
-   * **different** icon, scan downward then rightward to find the next free
-   * cell. Idempotent — placing on top of yourself keeps you put.
+   * Commit a drag-drop: resolve the target cell for the dragged icon, then
+   * persist ALL currently-computed positions in one atomic update. This
+   * prevents auto-placed icons (those without a stored position) from
+   * shuffling into the vacated cell and jumping around.
    */
-  const resolveDrop = useCallback(
-    (id: string, col: number, row: number): DesktopIconPos => {
+  const commitDrop = useCallback(
+    (id: string, col: number, row: number): void => {
+      // Build "taken" set from every icon except the one being moved.
       const taken = new Set<string>();
       for (const app of shortcuts) {
         if (app.id === id) continue;
         const p = arrangedPositions.get(app.id);
         if (p) taken.add(key(p.col, p.row));
       }
+      // Find the nearest free cell for the dragged icon.
       let c = col;
       let r = row;
       const SAFE_CAP = 256;
       let i = 0;
       while (taken.has(key(c, r)) && i < SAFE_CAP) {
         r += 1;
-        if (r > 16) {
-          c += 1;
-          r = 0;
-        }
+        if (r > 16) { c += 1; r = 0; }
         i += 1;
       }
-      return { col: c, row: r };
+      const finalPos: DesktopIconPos = { col: c, row: r };
+      // Collect ALL current positions and override the dragged icon's slot.
+      const batch: Record<string, DesktopIconPos> = {};
+      for (const app of shortcuts) {
+        batch[app.id] =
+          app.id === id
+            ? finalPos
+            : (arrangedPositions.get(app.id) ?? { col: 0, row: 0 });
+      }
+      setIconPositions(batch);
     },
-    [arrangedPositions, shortcuts],
+    [shortcuts, arrangedPositions, setIconPositions],
   );
 
   // Defensive: a misbehaving inner element (e.g. a focused window with
@@ -253,7 +263,7 @@ export function DesktopRoot({ autoOpen }: DesktopRootProps) {
                     <DesktopIcon
                       app={app}
                       pos={pos}
-                      resolveDrop={resolveDrop}
+                      onDrop={commitDrop}
                     />
                   </div>
                 );
