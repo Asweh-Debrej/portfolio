@@ -1,0 +1,52 @@
+---
+title: "II4031 Cryptography Playground"
+slug: "ii4031-crypto"
+year: 2024
+role: "Lead Developer (team of 3)"
+stack: ["Next.js 14", "React 18", "TypeScript", "NextUI", "Tailwind", "jsPDF", "aes-js", "js-sha3", "MongoDB", "Mongoose"]
+summary: "Interactive cryptography platform with cipher implementations from scratch and an end-to-end academic transcript encryption workflow."
+tags: ["cryptography", "education", "full-stack"]
+featured: false
+links:
+  - { label: "Live", href: "https://ii-4031-aan-ehan-vester-crypto.vercel.app" }
+  - { label: "GitHub", href: "https://github.com/Asweh-Debrej/II4031-aan-ehan-vester-crypto" }
+---
+
+# II4031 Cryptography Playground
+
+## Problem
+
+The IF4031 cryptography course covers a lot of theory, but theory without
+hands-on implementation tends to slide off. We wanted a single web playground
+where students could *use* the ciphers they had just learned — and where the
+implementations were written from scratch rather than imported from a library.
+
+## What I built
+
+Led a team of 3 (myself, Ehan, Vester). My contributions:
+
+- From-scratch implementations of **Vigenère**, **Vigenère extended**,
+  **Playfair**, **Affine**, **Autokey**, and a **Product cipher**.
+- Polished UI/UX for every cipher with consistent inputs, mode toggles, and
+  copy-friendly output.
+- End-to-end **academic transcript workflow**:
+  create → hash → sign → encrypt → submit → decrypt → validate → PDF download.
+- Vercel deployment + Mongo persistence for the transcript workflow.
+
+Teammates handled SHA-3, RSA, and a modified RC4.
+
+## Outcomes
+
+- Still live at the URL above and reused by later course cohorts as a
+  reference implementation.
+- Full feature parity with the course rubric.
+
+## Tech highlights
+
+- **From-scratch classical ciphers** for the depth of understanding the course
+  was actually trying to teach.
+- **jsPDF transcript signing** makes the academic use case tangible — students
+  can sign, encrypt, and verify their own (fake) transcripts.
+- **UTF-8 clipboard workaround** so non-ASCII ciphertext round-trips through
+  the OS clipboard without corruption.
+- **NextUI** kept the UI polished without writing a custom design system.

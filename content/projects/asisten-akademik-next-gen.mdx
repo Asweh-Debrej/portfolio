@@ -1,0 +1,49 @@
+---
+title: "Asisten Akademik Next-Gen"
+slug: "asisten-akademik-next-gen"
+year: 2025
+role: "Solo Developer"
+stack: ["Bun", "Hono", "MongoDB", "Redis", "Next.js 15", "React 19", "Tailwind", "HeroUI", "next-intl", "Auth.js", "MSAL", "Zod"]
+summary: "Web platform for ITB students covering course management, task tracking, and academic utilities the official systems do not provide."
+tags: ["education", "full-stack", "pwa"]
+featured: true
+links:
+  - { label: "Frontend", href: "https://github.com/Asweh-Debrej/asisten-akademik-next-gen-fe" }
+  - { label: "Backend", href: "https://github.com/Asweh-Debrej/asisten-akademik-next-gen-be" }
+  - { label: "Schema (npm)", href: "https://www.npmjs.com/package/@asweh-debrej/aan-schema" }
+---
+
+# Asisten Akademik Next-Gen
+
+## Problem
+
+ITB students juggle several disconnected academic systems for course information,
+schedules, and task tracking. None of them aggregate the day-to-day flow a
+student actually needs: "what's due today, where do I have class next, and which
+material do I need to read?"
+
+## What I built
+
+A complete student-facing web platform, designed and shipped solo. Features
+include course management with metadata enrichment, task tracking with
+deadlines, scraped ITB course catalogue, and Microsoft Entra (kampus SSO)
+authentication so students sign in with their existing credentials.
+
+There is **no AI / LLM** in the core product — it is deliberately a
+straightforward web utility built with care: clean APIs, fast pages, and a
+mobile-first PWA experience.
+
+## Outcomes
+
+- 150+ unique users during the May–Oct 2025 pilot at `aan.co.id`.
+- Stable monolith on Bun + Hono handling production traffic on a single VPS.
+- Schema package [`@asweh-debrej/aan-schema`](https://www.npmjs.com/package/@asweh-debrej/aan-schema)
+  published to npm so the FE/BE share a single Zod source of truth.
+
+## Tech highlights
+
+- **Bun + Hono** for low-latency JSON APIs and a small runtime footprint.
+- **Auth.js + MSAL** for Microsoft Entra single sign-on against ITB accounts.
+- **OpenAPI** spec generated from Zod schemas so the FE consumes a typed client.
+- Companion Python scraper **seven-soup** keeps ITB course data fresh.
+- **next-intl** for ID/EN localization and HeroUI for a polished mobile-first UI.

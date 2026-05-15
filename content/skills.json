@@ -1,0 +1,51 @@
+[
+  {
+    "category": "Languages",
+    "items": [
+      { "name": "JavaScript", "level": 5 },
+      { "name": "TypeScript", "level": 4 },
+      { "name": "Python", "level": 4 },
+      { "name": "SQL", "level": 4 },
+      { "name": "HTML/CSS", "level": 4 },
+      { "name": "C#", "level": 2 }
+    ]
+  },
+  {
+    "category": "Frontend",
+    "items": [
+      { "name": "Next.js", "level": 4 },
+      { "name": "React", "level": 4 },
+      { "name": "Tailwind CSS", "level": 4 },
+      { "name": "HeroUI", "level": 4 },
+      { "name": "shadcn/ui", "level": 3 },
+      { "name": "Framer Motion", "level": 2 }
+    ]
+  },
+  {
+    "category": "Backend",
+    "items": [
+      { "name": "Express", "level": 4 },
+      { "name": "Hono", "level": 3 },
+      { "name": "MongoDB", "level": 4 },
+      { "name": "PostgreSQL", "level": 4 },
+      { "name": "Redis", "level": 3 },
+      { "name": "Prisma", "level": 4 }
+    ]
+  },
+  {
+    "category": "Infrastructure",
+    "items": [
+      { "name": "CI/CD", "level": 5 },
+      { "name": "Dokploy", "level": 5 },
+      { "name": "Docker", "level": 4 },
+      { "name": "DevOps", "level": 4 }
+    ]
+  },
+  {
+    "category": "Other",
+    "items": [
+      { "name": "Unity", "level": 3 },
+      { "name": "PyTorch", "level": 3 }
+    ]
+  }
+]

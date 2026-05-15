@@ -1,0 +1,49 @@
+---
+title: "In-Jabar — Auditor Platform"
+slug: "in-jabar-auditor"
+year: 2024
+role: "Tech Lead"
+stack: ["Next.js 14", "React 18", "Material-UI", "@mui/x-charts", "Express", "MongoDB", "Mongoose", "JWT", "node-forge", "Winston", "nodemailer", "pm2"]
+summary: "Internal audit platform for Inspektorat Daerah Provinsi Jawa Barat IRBAN IV — led a 4-person team from kickoff to go-live in 3 months."
+tags: ["government", "audit", "full-stack", "tech-lead", "gov-tech"]
+featured: true
+---
+
+# In-Jabar — Auditor Platform
+
+## Problem
+
+Inspektorat Daerah Provinsi Jawa Barat IRBAN IV ran its audit cycles on a
+paper- and email-driven workflow. They needed a digital platform with a
+document viewer, structured audit cycle data, and email notifications — and a
+team that could ship it in one quarter.
+
+## What I built
+
+I led a 4-person team as **Tech Lead** (1 frontend, 1 backend, 1 mobile, 1 QA):
+
+- Designed full architecture and selected the stack
+  (Next.js + MUI on the frontend, Express + MongoDB on the backend).
+- Modeled the audit workflow domain so a single source of truth could serve
+  web, mobile, and reporting.
+- Defined the **REST + JWT contract** that the web frontend and mobile client
+  share.
+- Owned client communication with Pemprov Jawa Barat across the engagement.
+
+Implementation of feature work was done by the team; my role was design,
+review, and unblock.
+
+## Outcomes
+
+- Live in the Pemprov Jabar internal environment since **September 2024**.
+- 3 months from kickoff to go-live (Jul–Sep 2024).
+
+## Tech highlights
+
+- **node-forge** for cryptographic document signing — audit-trail integrity
+  matters for a public-sector use case.
+- **Winston** structured logging for compliance-grade audit logs.
+- **@mui/x-charts** drives the auditor analytics dashboard.
+- **Shared REST + JWT contract** lets the web and mobile clients consume the
+  same API without divergence.
+- **pm2** for zero-downtime restarts in production.

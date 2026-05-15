@@ -1,0 +1,235 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Use .dark class for dark-mode variants (not OS media query), so that
+   user-controlled theme and Tailwind dark: utilities stay in sync. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------------ */
+/* Theme tokens (light)                                               */
+/* ------------------------------------------------------------------ */
+@theme {
+  --color-bg: oklch(0.98 0.005 250);
+  --color-bg-elevated: oklch(1 0 0);
+  --color-fg: oklch(0.2 0.02 250);
+  --color-fg-muted: oklch(0.45 0.02 250);
+  --color-border: oklch(0.88 0.01 250);
+  --color-accent: oklch(0.55 0.18 250);
+  --color-accent-fg: oklch(1 0 0);
+  --color-window: oklch(0.99 0.005 250 / 0.94);
+  --color-taskbar: oklch(0.95 0.01 250 / 0.7);
+  --color-ring: oklch(0.6 0.18 250 / 0.5);
+
+  --shadow-window:
+    0 1px 2px rgb(0 0 0 / 0.05), 0 8px 24px rgb(0 0 0 / 0.12), 0 16px 48px rgb(0 0 0 / 0.08);
+  --shadow-focused:
+    0 1px 2px rgb(0 0 0 / 0.05), 0 12px 36px rgb(0 0 0 / 0.18), 0 24px 64px rgb(0 0 0 / 0.12);
+
+  --radius-window: 0.625rem;
+}
+
+/* Dark theme overrides */
+.dark {
+  --color-bg: oklch(0.18 0.02 250);
+  --color-bg-elevated: oklch(0.22 0.02 250);
+  --color-fg: oklch(0.95 0.005 250);
+  --color-fg-muted: oklch(0.65 0.02 250);
+  --color-border: oklch(0.32 0.02 250);
+  --color-accent: oklch(0.72 0.16 250);
+  --color-accent-fg: oklch(0.15 0.02 250);
+  --color-window: oklch(0.22 0.02 250 / 0.94);
+  --color-taskbar: oklch(0.16 0.02 250 / 0.75);
+  --color-ring: oklch(0.72 0.16 250 / 0.5);
+}
+
+/* ------------------------------------------------------------------ */
+/* Base styles                                                        */
+/* ------------------------------------------------------------------ */
+html,
+body {
+  height: 100%;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family:
+    "Segoe UI Variable", "Segoe UI", Inter, system-ui, -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  overflow: hidden; /* desktop OS: prevent scroll bleed; mobile overrides this */
+  /* Block rubber-band / browser scrolling triggered by focus-into-viewport
+     when a window is positioned off-screen during drag/resize. */
+  overscroll-behavior: none;
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ------------------------------------------------------------------ */
+/* Skeleton shimmer                                                   */
+/* ------------------------------------------------------------------ */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklch, var(--color-fg) 5%, transparent) 0%,
+    color-mix(in oklch, var(--color-fg) 12%, transparent) 50%,
+    color-mix(in oklch, var(--color-fg) 5%, transparent) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+/* ------------------------------------------------------------------ */
+/* Animated wallpaper                                                 */
+/* ------------------------------------------------------------------ */
+@keyframes wallpaper-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1.08);
+  }
+  50% {
+    transform: translate(2%, -1%) scale(1.12);
+  }
+}
+
+.wallpaper-aurora {
+  position: absolute;
+  inset: -10%;
+  background:
+    radial-gradient(at 20% 30%, oklch(0.7 0.18 250 / 0.7), transparent 50%),
+    radial-gradient(at 80% 20%, oklch(0.7 0.18 320 / 0.55), transparent 50%),
+    radial-gradient(at 50% 80%, oklch(0.65 0.18 180 / 0.55), transparent 55%),
+    linear-gradient(135deg, oklch(0.3 0.08 270), oklch(0.25 0.1 220));
+  filter: blur(40px);
+  animation: wallpaper-drift 40s ease-in-out infinite;
+  will-change: transform;
+}
+
+.wallpaper-sunset {
+  position: absolute;
+  inset: -10%;
+  background:
+    radial-gradient(at 30% 80%, oklch(0.7 0.2 30), transparent 55%),
+    radial-gradient(at 70% 20%, oklch(0.65 0.22 350), transparent 50%),
+    linear-gradient(180deg, oklch(0.45 0.18 30), oklch(0.35 0.15 320));
+  filter: blur(50px);
+  animation: wallpaper-drift 50s ease-in-out infinite;
+  will-change: transform;
+}
+
+.wallpaper-forest {
+  position: absolute;
+  inset: -10%;
+  background:
+    radial-gradient(at 20% 30%, oklch(0.55 0.15 150), transparent 55%),
+    radial-gradient(at 80% 70%, oklch(0.5 0.12 200), transparent 55%),
+    linear-gradient(135deg, oklch(0.3 0.1 150), oklch(0.2 0.08 200));
+  filter: blur(45px);
+  animation: wallpaper-drift 45s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ------------------------------------------------------------------ */
+/* CRT easter-egg overlay                                             */
+/* ------------------------------------------------------------------ */
+.crt-mode {
+  filter: contrast(1.05) saturate(1.1);
+}
+
+.crt-mode::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.15) 0,
+      rgba(0, 0, 0, 0.15) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    radial-gradient(circle at 50% 50%, transparent 60%, rgba(0, 0, 0, 0.6) 100%);
+  mix-blend-mode: multiply;
+  animation: crt-flicker 0.18s steps(2) infinite;
+}
+
+@keyframes crt-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.94;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Reduced motion: kill every animation we can                        */
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .wallpaper-aurora,
+  .wallpaper-sunset,
+  .wallpaper-forest {
+    animation: none;
+  }
+
+  .crt-mode::after {
+    animation: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Focus visibility                                                   */
+/* ------------------------------------------------------------------ */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 2px 0 0 var(--color-accent);
+}
+
+/* Scrollbar (subtle) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in oklch, var(--color-fg) 25%, transparent);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in oklch, var(--color-fg) 40%, transparent);
+  background-clip: padding-box;
+}

@@ -1,0 +1,43 @@
+---
+title: "Pixel Range Measure"
+slug: "pixel-range-measure"
+year: 2026
+role: "Solo"
+stack: ["Next.js 16", "React 19", "Tailwind v4", "Konva.js", "Zustand", "Framer Motion"]
+summary: "Web canvas tool for measuring tile distances on 2D game maps — built for tile-based gamers in 6 days."
+tags: ["tool", "canvas", "utility", "game-dev"]
+featured: false
+links:
+  - { label: "Live", href: "https://pixel-range-measure.asweh.com" }
+  - { label: "GitHub", href: "https://github.com/Asweh-Debrej/pixel-range-measure" }
+---
+
+# Pixel Range Measure
+
+## Problem
+
+Players of tile-based games (Stardew Valley, Terraria, factory-builders) want
+to know "how many tiles can my sprinkler / turret / weapon reach?" without
+opening Photoshop and counting pixels.
+
+## What I built
+
+A web canvas tool that loads any tilemap image, calibrates to its grid, and
+overlays measurement shapes:
+
+- Drag-and-drop image upload.
+- Grid calibration with sub-pixel accuracy.
+- Range tools using Chebyshev, Euclidean, and Manhattan distances.
+- Range-area visualization so you can preview shapes before placing them.
+
+## Outcomes
+
+- Live at [pixel-range-measure.asweh.com](https://pixel-range-measure.asweh.com).
+- Shipped solo in a 6-day sprint (Mar 19–24, 2026).
+
+## Tech highlights
+
+- **Konva.js** scene graph instead of raw Canvas for clean layering and event
+  handling on hundreds of overlay tiles.
+- **Zustand** over Redux to keep local state minimal-boilerplate.
+- **Framer Motion** for confident UI feedback on calibration steps.

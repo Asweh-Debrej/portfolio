@@ -1,0 +1,47 @@
+---
+title: "Robotic Arm Control & Visualization"
+slug: "robotic-arm-control"
+year: 2025
+role: "Web & Visualization Contributor"
+stack: ["Next.js 15", "React 19", "HeroUI", "Konva.js", "WebSocket", "JavaScript", "ESP32"]
+summary: "Web-based control and real-time visualization for a robotic arm lab tool at the ITB Mechanical Engineering lab."
+tags: ["robotics", "visualization", "web", "lab-tool"]
+featured: false
+links:
+  - { label: "GitHub", href: "https://github.com/husnialhanan118/TA_Husni" }
+---
+
+# Robotic Arm Control & Visualization
+
+## Problem
+
+A Mechanical Engineering lab at ITB needed a friendly tool for practicum
+sessions: students should be able to drive a robotic arm and see joint
+angles update in real time without dropping into firmware code.
+
+## What I built
+
+I contributed the **web interface, visualization, and FE↔firmware
+communication** layer:
+
+- Full UI with Next.js + HeroUI for two arm configurations (`arm1`, `arm2`).
+- Konva.js **real-time kinematics visualization** of joint angles (theta, omega)
+  with smooth 60fps updates.
+- **WebSocket** channel between the browser and ESP32 firmware.
+- **Forward-kinematics** math in JavaScript so the visualization runs locally
+  without round-tripping to the device.
+- Consulted on firmware architecture for serial communication and stepper
+  motor control.
+
+## Outcomes
+
+- Actively used during practicum sessions at the ITB Mechanical Engineering
+  lab.
+
+## Tech highlights
+
+- **Konva scene graph** with hierarchical joint transforms — child joints
+  follow parent rotation naturally.
+- **Smooth 60fps multi-segment arm rendering** even at extreme poses.
+- **NaN handling** for trigonometric edge cases at the singularity of arm
+  reach so the UI never goes blank.

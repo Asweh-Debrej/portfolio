@@ -1,0 +1,53 @@
+---
+title: "Elephant Robot — KRAI 2023"
+slug: "elephant-robot-krai"
+year: 2023
+role: "Tech Lead & Motor/Odometry Engineer"
+stack: ["C++", "mbed-OS", "STM32 Blue Pill", "PID", "Stanley Pursuit", "Sliding Mode Control", "TFMini", "CMPS12", "ROS1"]
+summary: "Autonomous elephant robot for KRAI 2023 competition — national finalist, with custom motor control, 3-encoder odometry, and path-tracking on STM32/mbed-OS."
+tags: ["robotics", "embedded", "control-systems", "competition"]
+featured: false
+links:
+  - { label: "Master (GitHub)", href: "https://github.com/KRAI-ITB/Master_Elephant2" }
+  - { label: "Slave (GitHub)", href: "https://github.com/KRAI-ITB/Slave_Elephant" }
+---
+
+# Elephant Robot — KRAI 2023
+
+## Problem
+
+KRAI 2023 ("Casting Flowers over ANGKOR WAT") asked teams to build an
+autonomous robot that navigates a competition field and accurately throws
+objects within strict time limits — all without GPS, on a resource-constrained
+microcontroller, with reliable master-slave coordination between two robots.
+
+## What I built
+
+Tech lead for the **elephant robot** division at Unit Robotika ITB (URO):
+
+- **Motor driver + PID** (`Motor.cpp`, `pidLo`) tuned for smooth low-RPM
+  response and predictable acceleration profiles.
+- **3-encoder odometry** (`odometriKRAI`) for indoor localization where GPS
+  isn't an option.
+- **Path tracking** with **Stanley Pursuit** for high-speed stability, plus a
+  **Sliding Mode Control** variant tested for disturbance-robust runs.
+- **Sensor fusion** combining TFMini ToF and CMPS12 (IMU/compass) for
+  position correction.
+- `JoystickPS3` manual override for tuning and emergency stops.
+- Also contributed to `Master_Rabbit` for the companion rabbit robot.
+
+## Outcomes
+
+- **National finalist**, KRAI 2023, with the URO ITB team.
+- Hands-on engineering experience under real-time embedded constraints and
+  competition pressure (a humbling tutorial in latency).
+
+## Tech highlights
+
+- **Fixed-point math** for 3-encoder odometry on STM32 to keep the control
+  loop real-time without an FPU.
+- **Stanley Pursuit** chosen over Pure Pursuit for stability at high speed.
+- **Sliding Mode Control** evaluated as a disturbance-robust alternative for
+  uneven competition surfaces.
+- **Complementary filter** (TFMini + CMPS12) lighter than Kalman and good
+  enough for correction without over-compute.

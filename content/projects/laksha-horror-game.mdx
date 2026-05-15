@@ -1,0 +1,52 @@
+---
+title: "Laksha — Horror Game"
+slug: "laksha-horror-game"
+year: 2025
+role: "Lead Programmer (team of 5)"
+stack: ["Unity", "C#", "AR Foundation", "XR Management", "TextMeshPro", "PostProcessing", "Timeline"]
+summary: "2D/3D horror game with puzzle and exploration mechanics, built as an ITB RPL capstone project."
+tags: ["game-dev", "horror", "unity", "team-project"]
+featured: false
+links:
+  - { label: "itch.io", href: "https://loxenary.itch.io/laksha-project" }
+  - { label: "GitHub", href: "https://github.com/Asweh-Debrej/JayaJayaJaya_RPL_GAMEDEV" }
+---
+
+# Laksha — Horror Game
+
+## Problem
+
+The IF RPL (Software Engineering) capstone asked for a complete software
+product with full SDLC documentation. We picked a horror game because it
+naturally exercises atmosphere, lighting, audio, and state-machine design —
+all the things a checklist project would skip.
+
+## What I built
+
+Lead programmer for a 5-person team. I wrote ~68% of commits, covering:
+
+- **Object interaction system** — pickup, examine, use, with context-aware
+  prompts and a small state machine per object.
+- **Player movement + camera** tuned deliberately slower than a shooter to
+  preserve horror pacing.
+- **HUD + inventory UI**, map traversal logic, and core player mechanics
+  (sanity, stamina, state).
+
+Teammates owned level design, audio/lighting, the AI antagonist, and project
+management.
+
+## Outcomes
+
+- Shipped publicly on [itch.io](https://loxenary.itch.io/laksha-project)
+  (Aug–Nov 2025).
+- Passed the final RPL presentation with a working build and complete SDLC
+  artifacts.
+
+## Tech highlights
+
+- **Movement tuning** as a horror lever — slow speed + camera sway sells dread
+  better than any jumpscare.
+- **Context-aware state machine** for object interaction so the same "E"
+  prompt does the right thing per object type.
+- **Trigger-based area unlock** to keep narrative pacing under designer
+  control without scripting hacks.

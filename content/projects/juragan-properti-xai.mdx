@@ -1,0 +1,53 @@
+---
+title: "Juragan Properti — Multi-Source Housing Market XAI"
+slug: "juragan-properti-xai"
+year: 2026
+role: "Co-Author & Data/Backend Engineer"
+stack: ["Next.js 16", "React", "Tailwind v4", "Mapbox GL", "FastAPI", "PyTorch", "XGBoost", "Random Forest", "SHAP", "Selenium", "Python"]
+summary: "Indonesian housing price prediction using multi-source data scraping and Explainable AI — published in IJHMA (Emerald, 2026)."
+tags: ["ml", "xai", "research", "real-estate"]
+featured: true
+links:
+  - { label: "DOI", href: "https://doi.org/10.1108/IJHMA-01-2026-0006" }
+---
+
+# Juragan Properti — Multi-Source Housing Market XAI
+
+## Problem
+
+Indonesian property data is fragmented across listing sites with inconsistent
+schemas, and the few price-prediction models in academic literature are
+black-box regressors that don't explain *why* a price is what it is. We wanted
+both: a unified dataset and an interpretable model.
+
+## What I built
+
+- **Scraping pipeline** — Selenium-driven crawler against
+  [99.co.id](https://99.co.id) with header rotation and headless retries to
+  collect listings across Indonesian metropolitan areas.
+- **EDA + feature engineering** — location clusters, neighborhood density,
+  derived ratios (price/m², land/building ratio), and segment tagging
+  (low/mid/high) since price drivers differ per segment.
+- **Modeling** — XGBoost and Random Forest baselines plus PyTorch MLPs,
+  evaluated per-segment so the high-end tail does not distort low-segment fit.
+- **XAI layer** — SHAP for global and per-listing feature attribution.
+- **FastAPI backend** serving model predictions and SHAP explanations to a
+  Next.js + Mapbox GL frontend with heat-map visualization.
+
+## Outcomes
+
+- Published as **"Integrating Multi-Source Data and Explainable AI for Housing
+  Market Analysis in Indonesia"** in the
+  [International Journal of Housing Markets and Analysis](https://doi.org/10.1108/IJHMA-01-2026-0006)
+  (Emerald), March 2026.
+- Co-authored with Ivan Aldy Ganesen, Fawwaz Abrial Saffa, Ayu Purwarianti,
+  and Nugraha Priya Utama.
+
+## Tech highlights
+
+- **Per-segment models** beat the single-model baseline because property price
+  drivers behave differently across low/mid/high tiers.
+- **SHAP** turned the model from a black box into a usable analyst tool.
+- **Mapbox GL heat map** for spatial exploration of predicted vs actual.
+- **Selenium with rotating headers + headless retries** to survive anti-bot
+  measures on the source site.
